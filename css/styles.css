@@ -1,0 +1,36 @@
+body {
+    font-family: 'Open sans', sans-serif;
+    color: black;
+    text-align: center;
+    padding: 1rem;
+}
+
+header {
+    color: magenta;
+    font-size: 40px;
+    padding-bottom: 40px;
+}
+
+.calculator-display {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.number-pad {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* ------------------- FLEX BOX -------------------*/
+.row {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.column {
+    background-color: lightblue;
+    padding: 1rem 0;
+    flex: 1;
+    font-size: 30px;
+}
