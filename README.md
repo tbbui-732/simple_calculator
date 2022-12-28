@@ -1,3 +1,3 @@
 # Simple Calculator
 
-A desktop application using Python and tkinter
+A simple calculator application
