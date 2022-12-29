@@ -16,10 +16,18 @@ header {
     margin: 0 auto;
 }
 
+.screen {
+    background-color: lightpink;
+    padding: 60px;
+    margin: 5px;
+    border-style: solid;
+}
+
 .number-pad {
     max-width: 1200px;
     margin: 0 auto;
 }
+
 
 /* ------------------- FLEX BOX -------------------*/
 .num-row {
