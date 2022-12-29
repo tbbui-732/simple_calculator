@@ -22,7 +22,13 @@ header {
 }
 
 /* ------------------- FLEX BOX -------------------*/
-.row {
+.num-row {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.function-keys {
     display: flex;
     gap: 10px;
     margin-bottom: 10px;
