@@ -37,8 +37,32 @@ function readFunctionKeys() {
         console.log(`${this.innerHTML}was clicked`);
     });
 
-}
+};
+
+function readOperationKeys() {
+    const add = document.querySelector('#add');
+    const sub = document.querySelector('#sub');
+    const mul = document.querySelector('#mul');
+    const div = document.querySelector('#div');
+
+    add.addEventListener('click', function() {
+        console.log(`${this.innerHTML}was clicked`);
+    });
+
+    sub.addEventListener('click', function() {
+        console.log(`${this.innerHTML}was clicked`);
+    });
+
+    mul.addEventListener('click', function() {
+        console.log(`${this.innerHTML}was clicked`);
+    });
+
+    div.addEventListener('click', function() {
+        console.log(`${this.innerHTML}was clicked`);
+    });
+};
 
 // main
 readNumberPad();
 readFunctionKeys();
+readOperationKeys();
