@@ -11,6 +11,11 @@ header {
     padding-bottom: 40px;
 }
 
+button {
+    border-color: black;
+    border-radius: 20px;
+}
+
 .calculator-display {
     max-width: 1200px;
     margin: 0 auto;
@@ -27,7 +32,6 @@ header {
     max-width: 1200px;
     margin: 0 auto;
 }
-
 
 /* ------------------- FLEX BOX -------------------*/
 .num-row {
