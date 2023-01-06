@@ -22,7 +22,7 @@ button {
 }
 
 .screen {
-    background-color: lightpink;
+    background-color: lightblue;
     padding: 60px;
     margin: 5px;
     border-style: solid;
@@ -31,6 +31,16 @@ button {
 .number-pad {
     max-width: 1200px;
     margin: 0 auto;
+}
+
+.function {
+    background-color: turquoise;
+    font-size: 20px;
+}
+
+#enter {
+    background-color: turquoise;
+    font-size: 20px;
 }
 
 /* ------------------- FLEX BOX -------------------*/
@@ -47,7 +57,7 @@ button {
 }
 
 .column {
-    background-color: lightblue;
+    background-color: lightpink;
     padding: 1rem 0;
     flex: 1;
     font-size: 30px;
