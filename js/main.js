@@ -1,52 +1,95 @@
-// -------- global variables --------
-// Selecting number pad key elements
-const numpad_key = document.querySelectorAll('#num-pad');
+// TODO - Create a single event listener for every single button -> improve performance
 
-// Selecting function key elements
-// const decimal_key = document.querySelector('#decimal');
-// const negate_key = document.querySelector('#negate');
-// const caret_key = document.querySelector('#caret');
-// const open_bracket = document.querySelector('#open_bracket');
-// const close_bracket = document.querySelector('#close_bracket');
-
-// Selecting operation key elements
-// const add = document.querySelector('#add');
-// const sub = document.querySelector('#sub');
-// const mul = document.querySelector('#mul');
-// const div = document.querySelector('#div');
-function readNumberPad() {
-    const operation_key = document.querySelectorAll('.function');
-    const enter_key = document.querySelector('#enter');
-
-    // Reading numpad selections
-    let number_list = [];
-    numpad_key.forEach(function(button) {
-        button.addEventListener('click', function() {
-            number_list.push(parseInt(this.innerHTML));
-            console.log(typeof(parseInt(this.innerHTML))); // NOTE: del
+function getUserInput() {
+    return new Promise(resolve => {
+        // Reading numpad selections
+        const numpad_key = document.querySelectorAll('#num-pad');
+        let number_list = [];
+        numpad_key.forEach(function(button) {
+            button.addEventListener('click', function() {
+                console.log(this.innerHTML + " selected");
+                number_list.push(parseInt(this.innerHTML));
+            });
         });
-    });
-    
-    // Selecting operation
-    operation_key.forEach(function(button) {
-        button.addEventListener('click', function() {
-            console.log(this.id + " operation has been selected"); // NOTE: del 
-            number_list.push(this.id);
-        });
-    });
 
-    // Calculating
-    enter_key.addEventListener('click', function(){
-        console.log("enter has been selected"); // NOTE: del 
-        console.log(number_list);
+        // Selecting operation key
+        const operation_key = document.querySelectorAll('.function');
+        operation_key.forEach(function(button) {
+            button.addEventListener('click', function() {
+                console.log(this.id + " operation selected");
+                number_list.push(this.id);
+            });
+        });
 
         // End function
-        return;
+        const enter_key = document.querySelector('#enter');
+        enter_key.addEventListener('click', function(){
+            console.log("enter key selected");
+            console.log(number_list);
+            resolve(number_list);
+        });
     });
-
-    // End function
-    return;
 };
 
-// main
-readNumberPad();
+function calculateResult(reg1, reg2, op) {
+    let result = null;
+    switch (op) {
+        case "add":
+            result = reg1 + reg2;
+            break;
+        case "sub":
+            result = reg1 - reg2;
+            break;
+        case "div":
+            result = reg1 / reg2;
+            break;
+        case "mul":
+            result = reg1 * reg2;
+            break;
+    };
+    return result;
+};
+
+function inputToEquation(arr) {
+    let reg1 = "";
+    let reg2 = "";
+    let op = "";
+
+    let i = 0;
+    let operations = ['add', 'sub', 'mul', 'div'];
+    
+    // Get first register
+    while (!operations.includes(arr[i])) {
+        reg1 += arr[i];
+        i++;
+    };
+    reg1 = parseInt(reg1);
+    console.log("reg1: " + reg1);
+    
+    // Get operation type
+    op = arr[i];
+    i++;
+    console.log("op: " + op);
+    
+    // Get second register
+    while (i < arr.length) {
+        reg2 += arr[i];
+        i++;
+    };
+    reg2 = parseInt(reg2);
+    console.log("reg2: " + reg2);
+    
+    let result = calculateResult(reg1, reg2, op);
+    return result;
+}
+
+async function main() {
+    let input_arr = getUserInput();
+    let result = inputToEquation(input_arr);
+    console.log("input arr: " + input_arr);
+    console.log("result: " + result);
+
+    return result;
+};
+
+main();
