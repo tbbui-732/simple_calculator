@@ -28,11 +28,6 @@ button {
     border-style: solid;
 }
 
-.number-pad {
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
 .function {
     background-color: turquoise;
     font-size: 20px;
