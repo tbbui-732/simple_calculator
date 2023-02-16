@@ -38,6 +38,11 @@ button {
     font-size: 20px;
 }
 
+#display-result {
+    font-size: 40px;
+    color: black;
+}
+
 /* ------------------- FLEX BOX -------------------*/
 .num-row {
     display: flex;
