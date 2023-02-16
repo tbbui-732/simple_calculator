@@ -1,3 +1,7 @@
+// TODO 
+// Update display to show user's inputted results
+// Store result somewhere so it can be reused (add new button?)
+
 // Function that calculates given input
 // Calculation sequence contains strings
 function calculateArr(arr) {
@@ -55,7 +59,9 @@ buttons.forEach(button => { // attach a click event listener to each button
 
 function handleClick(event) {
     const value = event.target.id;  // extract the value from the button's id attribute
+    const display = document.getElementById('display-result')
     console.log(value)
+    display.innerHTML = value
 
     if (value === 'enter') {        // if the clicked button is the "enter" button
         console.log(values);        // print out the array
@@ -67,8 +73,7 @@ function handleClick(event) {
         console.log(result)
 
         // Display results onto screen
-        const resultDiv = document.getElementById('display-result')
-        resultDiv.innerHTML = result
+        display.innerHTML = result
     } 
     else {
         values.push(value);         // add the value to the array
